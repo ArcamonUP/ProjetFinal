@@ -36,17 +36,17 @@ header {
     opacity: 0;
 }
 
-#menu_toggle:checked+.menu_btn>span {
+#menu_toggle:checked + .menu_btn > span {
     transform: rotate(45deg);
 }
 
-#menu_toggle:checked+.menu_btn>span::before,
-#menu_toggle:checked+.menu_btn>span::after {
+#menu_toggle:checked + .menu_btn > span::before,
+#menu_toggle:checked + .menu_btn > span::after {
     top: 0;
     transform: rotate(90deg);
 }
 
-#menu_toggle:checked~.menu_box {
+#menu_toggle:checked ~ .menu_box {
     left: 0 !important;
 }
 
@@ -61,9 +61,9 @@ header {
     background-color: transparent;
 }
 
-.menu_btn>span,
-.menu_btn>span::before,
-.menu_btn>span::after {
+.menu_btn > span,
+.menu_btn > span::before,
+.menu_btn > span::after {
     display: block;
     position: absolute;
     width: 100%;
@@ -72,12 +72,12 @@ header {
     transition-duration: .25s;
 }
 
-.menu_btn>span::before {
+.menu_btn > span::before {
     content: '';
     top: -8px;
 }
 
-.menu_btn>span::after {
+.menu_btn > span::after {
     content: '';
     top: 8px;
 }
@@ -116,8 +116,30 @@ header {
     background-color: gray;
 }
 
-main img {
+main {
     padding-top: 75px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+}
+
+main button {
+    height: 40px;
+    text-decoration: none;
+    background-color: white;
+    color: black;
+    width: 200px;
+    border-radius: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+main button:hover {
+    box-shadow: 1px 1px 4px antiquewhite;
+    transform: scale(1.05, 1.05);
+}
+
+main img {
+    padding-top: 10px;
+    height: 800px;
 }

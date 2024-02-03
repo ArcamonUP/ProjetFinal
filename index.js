@@ -4,29 +4,18 @@ let slideTimer;
 showSlides();
 
 function showSlides() {
-  let i;
-  let slides = document.getElementsByClassName("mySlides");
-  let dots = document.getElementsByClassName("dot");
+  const slides = document.getElementsByClassName("mySlides");
+  const dots = document.getElementsByClassName("dot");
 
-  if (slideIndex > slides.length) {
-    slideIndex = 1;
-  }
-  if (slideIndex < 1) {
-    slideIndex = slides.length;
-  }
+  slideIndex = (slideIndex > slides.length) ? 1 : (slideIndex < 1) ? slides.length : slideIndex;
 
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-
-  for (i = 0; i < dots.length; i++) {
-    dots[i].className = dots[i].className.replace(" active", "");
-  }
+  Array.from(slides).forEach(slide => slide.style.display = "none");
+  Array.from(dots).forEach(dot => dot.className = dot.className.replace(" active", ""));
 
   slides[slideIndex - 1].style.display = "block";
   dots[slideIndex - 1].className += " active";
 
-  slideTimer = setTimeout(function () {
+  slideTimer = setTimeout(() => {
     slideIndex++;
     showSlides();
   }, 4500);
